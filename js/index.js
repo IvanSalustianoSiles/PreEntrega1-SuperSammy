@@ -287,12 +287,12 @@ while (continuar != `FIN`) {
                                 if (deudor8 == false) {
                                     ifAcreedor (nombre8, deudaPara8);
                                 } else {
-                                    ifSegundosCases (deudor1, deuda8, deudaPara1, nombre7, nombre1);
-                                    ifSegundosCases (deudor2, deuda8, deudaPara2, nombre7, nombre2);
-                                    ifSegundosCases (deudor3, deuda8, deudaPara3, nombre7, nombre3);
-                                    ifSegundosCases (deudor4, deuda8, deudaPara4, nombre7, nombre4);
-                                    ifSegundosCases (deudor5, deuda8, deudaPara5, nombre7, nombre5);
-                                    ifSegundosCases (deudor6, deuda8, deudaPara6, nombre7, nombre6);
+                                    ifSegundosCases (deudor1, deuda8, deudaPara1, nombre8, nombre1);
+                                    ifSegundosCases (deudor2, deuda8, deudaPara2, nombre8, nombre2);
+                                    ifSegundosCases (deudor3, deuda8, deudaPara3, nombre8, nombre3);
+                                    ifSegundosCases (deudor4, deuda8, deudaPara4, nombre8, nombre4);
+                                    ifSegundosCases (deudor5, deuda8, deudaPara5, nombre8, nombre5);
+                                    ifSegundosCases (deudor6, deuda8, deudaPara6, nombre8, nombre6);
                                     ifSegundosCases (deudor7, deuda8, deudaPara7, nombre8, nombre7);
                                   }
                             break;
