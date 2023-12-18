@@ -50,10 +50,10 @@ while (continuar != `FIN`) {
             // ("ingresoNombres" es una función dedicada a que el usuario ingrese el nombre de una persona en una determinada vuelta del for. Debido a ello, "a" cambia a "i" en el llamado.)
             function ingresoPagos (nombre, totalReal) {
                 if (totalReal >= total) {
-                    parseFloat(prompt(`¿Cuánto pagó ${nombre}?
+                    return parseFloat(prompt(`¿Cuánto pagó ${nombre}?
                     Monto actual: ${totalReal} (límite alcanzado)`));
                 } else {
-                    parseFloat(prompt(`¿Cuánto pagó ${nombre}?
+                    return parseFloat(prompt(`¿Cuánto pagó ${nombre}?
                     Monto actual: ${totalReal}`));
                 }
             }
