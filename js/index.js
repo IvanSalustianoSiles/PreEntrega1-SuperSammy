@@ -34,12 +34,13 @@ while (continuar != `FIN`) {
             function ifAcreedor2 (nombreY, deudaParaY) {
                 alert(`A ${nombreY} le deben ${deudaParaY} pesos y no debe.`);
             }
-            // ("ifAcreedor" es una función dedicada al mensaje se muestra en pantalla si la persona es acreedor, es decir, la variable deudor resulta false.)
+            // ("ifAcreedor2" es una función dedicada al mensaje se muestra en pantalla si la persona es acreedor, es decir, la variable deudor resulta false.)
             function ifSegundosCases (deudorX, deudaN, deudaParaX, nombreN, nombreX) {
                 if (deudorX == false) {
                     let deudaNAX = deudaN * deudaParaX / deudaTotal;
                     // ("deudaNAX" refiere a la deuda de una persona N a una persona X. La fórmula consiste en multiplicar la deuda general de N, por lo que le deben en general a X sobre la deuda total, que no es más que la suma de todo lo que se debe grupalmente.)
-                    alert(`${nombreN} debe ${deudaNAX} pesos a ${nombreX}`);
+                    alert(`${nombreN} debe ${Math.round(deudaNAX)} pesos a ${nombreX}`);
+                    // (Redondeamos lo que le debe N a X con "Math.round".)
                 }
             }
             // ("ifSegundosCases" es una función dedicada a ver, dentro del caso else en el que la persona sea deudor, a quién le debe; para eso, se evalúa si las demás personas son acreedores, es decir, no-deudores. Si lo son, es a ellos a quienes les debe, y se alerta la deuda correspondiente.)
@@ -47,12 +48,20 @@ while (continuar != `FIN`) {
                return prompt(`¿Quién es el amigo N°${a}?`);
             }
             // ("ingresoNombres" es una función dedicada a que el usuario ingrese el nombre de una persona en una determinada vuelta del for. Debido a ello, "a" cambia a "i" en el llamado.)
-            function ingresoPagos (nombre) {
-                return parseFloat(prompt(`¿Cuánto pagó ${nombre}?`));
+            function ingresoPagos (nombre, totalReal) {
+                if (totalReal >= total) {
+                    parseFloat(prompt(`¿Cuánto pagó ${nombre}?
+                    Monto actual: ${totalReal} (límite alcanzado)`));
+                } else {
+                    parseFloat(prompt(`¿Cuánto pagó ${nombre}?
+                    Monto actual: ${totalReal}`));
+                }
             }
             // ("ingresoPagos" es una función dedicada a que el usuario ingrese el pagó que realizó una persona determinada del grupo. Toma como parámetro al mismo nombre definido justo antes.)
             let amigos = [];
+            // ("amigos" es un array que cargará con el método .push un objeto "Amigo" por campo.
             class Amigo {
+                // ("Amigo" es un objeto que contiene los atributos de cada amigo en particular, junto con un método.
                 nombre;
                 pagoReal;
                 deuda;
@@ -61,7 +70,7 @@ while (continuar != `FIN`) {
                 deudor;
                 constructor (x, pagoIdeal, totalReal, deudor) {
                     this.nombre = ingresoNombres (x);
-                    this.pagoReal = ingresoPagos (this.nombre);
+                    this.pagoReal = ingresoPagos (this.nombre, totalReal);
                     this.deuda = sumador (pagoIdeal, -this.pagoReal);
                     this.totalReal = sumador (totalReal, this.pagoReal);
                     this.deudaPara = -this.deuda;
@@ -102,6 +111,8 @@ while (continuar != `FIN`) {
                             while (k != j && k <= amigos.length-1) {
                                 let objetoK = amigos[k];
                                 ifSegundosCases (objetoK.deudor, objetoJ.deuda, objetoK.deudaPara, objetoJ.nombre, objetoK.nombre);
+                                // (He cargado dos variables distintas que contienen los objetos originarios del array "Amigos", para separar en parámetros
+                                // a las propiedades pertenecientes al deudor (con objetoJ) de las pertenecientes a los acreedores (con objetoK). Esto gracias, además, a las condiciones del while contenedor.)
                                 k++;
                             }
                         }
