@@ -24,15 +24,15 @@ while (continuar != `FIN`) {
                 let resultado = n1 + n2;
                 return resultado;
             }
+            // ("sumador" es una función que suma dos números. La reutilicé para algunas restas, volviendo al sustraendo negativo.)
             function pagosNegativos (protoPagoReal) {
-                // ("pagosNegativos" es una función que evalúa si el usuario ingresó un pago negativo, lo que implicaría que debe dinero extra por fuera del total estipulado. Ergo, es preciso alertárselo.)
                 if (protoPagoReal < 0) {
                     return alert(`ATENCIÓN: Tu pago es menor a cero. Ten en cuenta que pagarás una deuda extra a los acreedores del grupo de ${-protoPagoReal}.`)
                 }
             }
-            // ("sumador" es una función que suma dos números. La reutilicé para algunas restas, volviendo al sustraendo negativo.)
+            // ("pagosNegativos" es una función que evalúa si el usuario ingresó un pago negativo, lo que implicaría que debe dinero extra por fuera del total estipulado. Ergo, es preciso alertárselo.)
             function ifAcreedor2 (nombreY, deudaParaY) {
-                alert(`A ${nombreY} le deben ${deudaParaY} pesos y no debe.`);
+                alert(`A ${nombreY} le deben ${Math.round(deudaParaY)} pesos y no debe.`);
             }
             // ("ifAcreedor2" es una función dedicada al mensaje se muestra en pantalla si la persona es acreedor, es decir, la variable deudor resulta false.)
             function ifSegundosCases (deudorX, deudaN, deudaParaX, nombreN, nombreX) {
@@ -120,7 +120,7 @@ while (continuar != `FIN`) {
                 }
                 continuar = prompt(`Si desea dividir otro gasto y sus deudas, pulse ENTER. Sino, escriba "FIN".`).toUpperCase();
                 if (continuar == `FIN`) {
-                    alert(`¡Gracias por utilizar el SDM (Sistema de Dvisión Monetaria)! Ahora sus gastos están bien repartidos. ¡Hasta pronto!`);
+                    alert(`¡Gracias por utilizar el SDM (Sistema de División Monetaria)! Ahora sus gastos están bien repartidos. ¡Hasta pronto!`);
                 } else if (continuar != ``) {
                     alert(`Ocurrió un error. ${enter}`);
                 }
